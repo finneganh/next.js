@@ -1,5 +1,8 @@
-const babelRuntimePath = require.resolve('babel-runtime/package')
+const pathStart = 'node_modules/'
+let babelRuntimePath = require.resolve('babel-runtime/package')
   .replace(/[\\/]package\.json$/, '')
+
+babelRuntimePath = babelRuntimePath.substring(babelRuntimePath.indexOf(pathStart) + pathStart.length)
 
 const envPlugins = {
   'development': [
